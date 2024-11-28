@@ -1,0 +1,19 @@
+SELECT COUNT(*) AS total_users FROM Users;
+
+
+SELECT AVG(LENGTH(username)) AS avg_username_length FROM Users;
+
+
+SELECT MAX(LENGTH(password)) AS max_password_length FROM Users;
+
+
+SELECT MIN(LENGTH(username)) AS min_username_length FROM Users;
+
+
+SELECT Users.username, COUNT(Учебники.id) AS books_count
+FROM Users
+LEFT JOIN Учебники ON Users.id = Учебники.пользователь_id
+GROUP BY Users.id;
+
+
+SELECT COUNT(*) AS books_for_user FROM Учебники WHERE пользователь_id = 1;
